@@ -184,50 +184,6 @@
         backSpeed: 70,
         loop: true,
       });
-      const items = document.querySelectorAll(".resume-item");
-
-      const container = document.querySelector(".resume-section");
-
-      let draggedItem = null;
-
-      items.forEach((item) => {
-        // Початок перетягування
-        item.addEventListener("dragstart", () => {
-          draggedItem = item;
-          setTimeout(() => {
-            item.style.display = "none";
-          }, 0);
-        });
-
-        // Завершення перетягування
-        item.addEventListener("dragend", () => {
-          setTimeout(() => {
-            draggedItem.style.display = "block";
-            draggedItem = null;
-          }, 0);
-        });
-
-        // Перетягування над іншим елементом
-        item.addEventListener("dragover", (e) => {
-          e.preventDefault();
-        });
-
-        // Відпускання елемента
-        item.addEventListener("drop", (e) => {
-          e.preventDefault();
-          if (draggedItem !== item) {
-            const itemsArray = [...container.children];
-            const draggedIndex = itemsArray.indexOf(draggedItem);
-            const targetIndex = itemsArray.indexOf(item);
-
-            if (draggedIndex < targetIndex) {
-              container.insertBefore(draggedItem, item.nextSibling);
-            } else {
-              container.insertBefore(draggedItem, item);
-            }
-          }
-        });
-      });
     </script>
   </body>
 </html>
