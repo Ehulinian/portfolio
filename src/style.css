@@ -1,0 +1,368 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: poppins, sans-serif;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden;
+}
+.hero-header {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background: #222;
+}
+.wrapper {
+  width: 1280px;
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 0 20px;
+  padding-bottom: 40px;
+}
+header {
+  padding: 40px 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.logo {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo i {
+  height: 45px;
+  width: 45px;
+  background-color: #007ced;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+.logo .logo-text {
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
+}
+nav .togglebtn {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 45px;
+  right: 3%;
+  z-index: 5;
+  cursor: pointer;
+  display: none;
+}
+nav .togglebtn span {
+  display: block;
+  background-color: #007ced;
+  margin: 5px 0px;
+  width: 100%;
+  height: 3px;
+  transition: 0.3s;
+  transition-property: transform, opacity;
+}
+nav .navlinks {
+  list-style-type: none;
+}
+nav .navlinks li {
+  display: inline-block;
+}
+nav .navlinks li a {
+  color: #e5e5e5;
+  margin-right: 2.5rem;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 4rem;
+}
+.container .hero-pic {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 15px solid #444;
+  box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.5);
+}
+.hero-pic img {
+  position: relative;
+  right: 20px;
+  height: 100%;
+  width: 105%;
+  transition: 0.5s;
+}
+.hero-pic img:hover {
+  transform: scale(1.2);
+}
+.hero-text {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.hero-text h5 {
+  color: #e5e5e5;
+  font-size: 14px;
+}
+.hero-text h5 span {
+  color: #007ced;
+  font-size: 16px;
+}
+.hero-text h1 {
+  color: #007ced;
+  font-size: 3rem;
+}
+.hero-text p {
+  color: #e5e5e5;
+}
+.btn-group {
+  margin: 45px 0;
+}
+.btn-group .btn {
+  border-color: #d5d5d5;
+  color: #fff;
+  background-color: #333;
+  padding: 12px 25px;
+  margin: 5px 0px;
+  margin-right: 7px;
+  border-radius: 30px;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
+}
+.btn.active {
+  border-color: #007ced;
+}
+.hero-text .social i {
+  color: #e5e5e5;
+  font-size: 18px;
+  margin-right: 10px;
+  transition: 0.5s;
+}
+.hero-text .social i:hover {
+  color: #007ced;
+  transform: rotate(360deg);
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+#resume {
+  padding: 50px 20px;
+  background-color: #f0f0f0; /* Світло-сірий фон */
+  text-align: center;
+}
+
+#resume h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.resume-item {
+  border: 1px dashed transparent;
+  transition: border 0.2s ease;
+}
+
+.resume-item.dragging {
+  opacity: 0.5;
+}
+
+.resume-item:hover {
+  border: 1px dashed #007bff;
+}
+
+.resume-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.resume-item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: left;
+}
+
+.resume-item h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #007ced;
+}
+
+.resume-details h4 {
+  font-size: 1.4rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.resume-details p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.resume-details ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  color: #666;
+}
+
+.resume-details ul li {
+  margin-bottom: 5px;
+}
+
+/* Скілли */
+.skill {
+  margin: 15px 0;
+}
+
+.skill p {
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+.skill-bar {
+  height: 10px;
+  width: 100%;
+  background: #ddd; /* Світло-сірий фон бару */
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-bar .fill {
+  height: 100%;
+  background: #007ced; /* Синій колір заповнення */
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Загальні стилі для секції Portfolio */
+#portfolio {
+  padding: 40px 20px;
+  text-align: center;
+  background: #222;
+}
+
+#portfolio h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #e5e5e5;
+}
+
+.portfolio-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Стилізація кожного елемента портфоліо */
+.portfolio-items .item {
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-items .item:hover {
+  transform: translateY(-10px);
+}
+
+.portfolio-items .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portfolio-items .item h3 {
+  font-size: 1.5rem;
+  margin: 15px 0 10px;
+  color: #e5e5e5;
+}
+
+.portfolio-items .item p {
+  font-size: 1rem;
+  color: #e5e5e5;
+  padding: 0 10px 20px;
+}
+
+/* Додаткові стилі для адаптивності */
+@media (max-width: 768px) {
+  .portfolio-items {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Respnosiv design & displaying navbar for small screen */
+@media (max-width: 930px) {
+  nav .togglebtn {
+    display: initial;
+  }
+  /* for toggle button**/
+  .click {
+    top: 45px;
+  }
+  .click span {
+    position: absolute;
+    margin-top: 12px;
+  }
+  .click span:first-child {
+    transform: rotate(-40deg);
+  }
+  .click span:nth-child(2) {
+    opacity: 0;
+    margin: 0;
+  }
+  .click span:last-child {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  nav .navlinks {
+    position: absolute;
+    top: 110px;
+    right: -100%;
+    bottom: 0;
+    width: 60%;
+    height: 100vh;
+    background-color: #222;
+    z-index: 3;
+    box-shadow: 5px 13px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    padding: 25px 0px;
+  }
+  nav .navlinks li {
+    display: block;
+  }
+  nav .navlinks li a {
+    display: block;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  nav .navlinks.open {
+    right: 0;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding-top: 2rem;
+  }
+  .hero-text {
+    padding: 40px 0px;
+  }
+}

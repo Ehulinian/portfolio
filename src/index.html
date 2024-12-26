@@ -2,482 +2,230 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
+    <title>Responsive Portfolio Website Design</title>
+    <link rel="stylesheet" href="style.css" />
+    <!----Font awesome cdn  font icon css -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        background: #f4f4f9;
-        color: #333;
-        line-height: 1.6;
-      }
-
-      #about-me {
-        padding: 50px 20px;
-        background: #fff;
-        color: #333;
-      }
-
-      #about-me h2 {
-        font-size: 2.5rem;
-        text-align: center;
-        margin-bottom: 30px;
-      }
-
-      .about-me-content {
-        max-width: 900px;
-        margin: 0 auto;
-        line-height: 1.6;
-      }
-
-      .about-me-content ul {
-        list-style-type: none;
-        text-align: left;
-        padding: 0;
-      }
-
-      #about-me h3 {
-        font-size: 1.8rem;
-        margin-top: 30px;
-        color: #3b82f6;
-        text-align: left;
-      }
-
-      #about-me p {
-        font-size: 1rem;
-        color: #555;
-        margin-bottom: 20px;
-        text-align: left;
-      }
-
-      header h1 {
-        font-size: 1.8rem;
-        font-weight: 600;
-      }
-
-      section {
-        padding: 50px 20px;
-        text-align: center;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s, transform 0.6s;
-      }
-
-      section.appear {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* New styling for the intro section */
-      #intro {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .photo {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        border: 5px solid #333;
-        object-fit: cover;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .intro-text {
-        max-width: 600px;
-        text-align: left;
-      }
-
-      .intro-text h2 {
-        font-size: 2rem;
-        color: #333;
-        margin-bottom: 15px;
-      }
-
-      .intro-text p {
-        font-size: 1rem;
-        color: #555;
-        line-height: 1.6;
-      }
-
-      .skills,
-      .education ul,
-      .technologies ul {
-        list-style-type: none;
-        padding: 0;
-      }
-
-      .skills {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        max-width: 600px;
-        margin: 50px auto;
-      }
-
-      .skill-bar {
-        background: #e0e0e0;
-        border-radius: 5px;
-        overflow: hidden;
-        height: 20px;
-      }
-
-      .skill-bar span {
-        display: block;
-        height: 100%;
-        background: #3b82f6;
-      }
-
-      .projects {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        padding: 50px 20px;
-      }
-
-      .project {
-        background: white;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        overflow: hidden;
-        transition: transform 0.3s;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .project img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease-in-out;
-      }
-
-      .project:hover img {
-        transform: scale(1.04);
-      }
-
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 50px;
-        background: #333;
-        color: white;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: background 0.3s ease;
-      }
-
-      header:hover {
-        background: #444;
-      }
-
-      header h1 {
-        font-size: 2rem;
-        font-weight: 600;
-        margin: 0;
-      }
-
-      nav {
-        display: flex;
-        gap: 20px;
-      }
-
-      nav a {
-        color: white;
-        text-decoration: none;
-        font-size: 1rem;
-        padding: 8px 16px;
-        border-radius: 5px;
-        transition: background 0.3s ease;
-      }
-
-      nav a:hover {
-        background: #3b82f6;
-      }
-
-      footer {
-        background: #333;
-        color: white;
-        padding: 30px 50px;
-        text-align: center;
-        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-        margin-top: 50px;
-      }
-
-      footer a {
-        color: #3b82f6;
-        text-decoration: none;
-        margin: 0 10px;
-        transition: color 0.3s ease;
-      }
-
-      footer a:hover {
-        color: white;
-      }
-
-      footer p {
-        font-size: 1rem;
-        margin: 10px 0;
-      }
-
-      footer .social-links {
-        margin-top: 20px;
-      }
-
-      footer .social-links a {
-        font-size: 1.5rem;
-        margin: 0 15px;
-        color: white;
-      }
-
-      footer .social-links a:hover {
-        color: #3b82f6;
-      }
-
-      h2 {
-        color: #333;
-        font-size: 2rem;
-        margin-bottom: 20px;
-      }
-
-      .education,
-      .technologies {
-        max-width: 900px;
-        margin: 0 auto;
-        text-align: left;
-      }
-
-      .education li {
-        margin-bottom: 20px;
-      }
-
-      .technologies ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        padding: 0;
-      }
-
-      .technologies li {
-        background: #f0f0f0;
-        padding: 10px 20px;
-        border-radius: 5px;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .technologies li:hover {
-        background: #3b82f6;
-        color: white;
-      }
-    </style>
   </head>
   <body>
-    <header>
-      <h1>Erik Hulinian</h1>
-      <nav>
-        <a href="#intro">Home</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#about-me">About</a>
-        <a href="#footer">Contact</a>
-      </nav>
-    </header>
+    <div class="hero-header">
+      <div class="wrapper">
+        <header>
+          <div class="logo">
+            <i class="fa-solid fa-e"></i>
+            <div class="logo-text">Erik Hulinian</div>
+          </div>
+          <nav>
+            <div class="togglebtn">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <ul class="navlinks">
+              <li><a href="#">Home</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#resume">Resume</a></li>
+            </ul>
+          </nav>
+        </header>
+        <div class="container">
+          <div class="hero-pic">
+            <img src="images/1723666551057 – копія.jpg" alt="profile pic" />
+          </div>
+          <div class="hero-text">
+            <h5>Hi I'm <span class="input">Web Developer</span></h5>
+            <h1>Erik Hulinian</h1>
+            <p>
+              Highly motivated and detail-oriented front-end developer with over
+              1 year of experience in building and optimizing user focused web
+              applications. Proficient in JavaScript, React, and modern
+              front-end technologies. Adept at creating dynamic, responsive, and
+              accessible interfaces. Strong problem-solving skills with a
+              commitment to delivering high-quality, scalable code. Passionate
+              about learning new technologies and continuously improving
+              development processes.
+            </p>
 
-    <section id="intro">
-      <img
-        src="./assets/1723666551057 – копія.jpg"
-        alt="My Photo"
-        class="photo"
-      />
-      <div class="intro-text">
-        <h2>Frontend Developer</h2>
-        <p>
-          Creating responsive and dynamic user experiences with React,
-          TypeScript, and modern tools. Passionate about writing clean,
-          efficient code, and continuously learning new technologies to stay
-          up-to-date with the latest trends in frontend development. Experienced
-          in integrating APIs, working with state management tools like Redux,
-          and building scalable web applications with a focus on performance
-          optimization. Skilled in using version control (Git), testing
-          frameworks (Jest, React Testing Library), and deployment tools
-          (Netlify, Vercel).
-        </p>
-      </div>
-    </section>
+            <div class="btn-group">
+              <a
+                href="./Сіре Мінімалістське Фото Резюме Актора (4).pdf"
+                class="btn active"
+                >Download CV</a
+              >
+            </div>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills">
-        <div class="skill">
-          <label>HTML</label>
-          <div class="skill-bar"><span style="width: 90%"></span></div>
+            <div class="social">
+              <a
+                href="https://www.linkedin.com/in/%D0%B5%D1%80%D1%96%D0%BA-%D0%B3%D1%83%D0%BB%D1%96%D0%BD%D1%8F%D0%BD-8093a42b7/"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a href="https://t.me/herald_qwe"
+                ><i class="fa-brands fa-telegram"></i
+              ></a>
+            </div>
+          </div>
         </div>
-        <div class="skill">
-          <label>CSS</label>
-          <div class="skill-bar"><span style="width: 85%"></span></div>
+      </div>
+      <section id="resume">
+        <h2>Resume</h2>
+        <div class="resume-section">
+          <div class="resume-item" draggable="true">
+            <h3>Education</h3>
+            <div class="resume-details">
+              <h4>Khmelnytskyi National University</h4>
+              <p>Bachelor of Software Enginner</p>
+              <p>2020 - 2024</p>
+            </div>
+          </div>
+
+          <div class="resume-item" draggable="true">
+            <h3>Work Experience</h3>
+            <div class="resume-details">
+              <h4>Frontend Developer</h4>
+              <p>Hexide Digital</p>
+              <ul>
+                <li>
+                  Developed responsive web applications using React.js and
+                  Redux.
+                </li>
+                <li>Collaborated with designers to improve UI/UX.</li>
+                <li>Working with laravel blades.</li>
+                <li>Maintained and optimized existing codebase.</li>
+                <li>Working in team.</li>
+                <li>Communicate with teammates.</li>
+                <li>Optimize web application.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="resume-item" draggable="true">
+            <h3>Skills</h3>
+            <div class="skill">
+              <p>HTML</p>
+              <div class="skill-bar">
+                <div class="fill" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <p>CSS</p>
+              <div class="skill-bar">
+                <div class="fill" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <p>JavaScript</p>
+              <div class="skill-bar">
+                <div class="fill" style="width: 75%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <p>React.js</p>
+              <div class="skill-bar">
+                <div class="fill" style="width: 70%"></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="skill">
-          <label>JavaScript</label>
-          <div class="skill-bar"><span style="width: 80%"></span></div>
+      </section>
+
+      <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-items">
+          <a href="https://ehulinian.github.io/react_phone-catalog/">
+            <div class="item">
+              <img
+                src="images/Знімок екрана 2024-11-24 162124.png"
+                alt="Project 1"
+              />
+            </div>
+          </a>
+
+          <a href="https://ehulinian.github.io/layout_creativeBakery/">
+            <div class="item">
+              <img
+                src="images/Снимок экрана 2024-12-25 180122.png"
+                alt="Project 2"
+              />
+            </div>
+          </a>
+
+          <a href="https://ehulinian.github.io/layout_landing-page/">
+            <div class="item">
+              <img
+                src="images/306280011-694d9ba3-77b7-456e-8a68-12f2f3fdad2a.png"
+                alt="Project 2"
+              />
+            </div>
+          </a>
         </div>
-        <div class="skill">
-          <label>React</label>
-          <div class="skill-bar"><span style="width: 75%"></span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <!-- About Me Section -->
-    <section id="about-me">
-      <h2>About me</h2>
-      <div class="about-me-content">
-        <p>
-          Greetings! My name is Erik Hulinian, and I'm a front-end developer
-          with a major passion for technology and creation of intuitive and
-          responsive web applications. My goal is to provide a great experience
-          users through efficient and clean code, constantly improving their
-          skills and following the latest trends in development.
-        </p>
-        <p>
-          I specialize in JavaScript, React, TypeScript, as well as API
-          integration and application performance optimization. I believe in the
-          importance of maintaining code cleanliness, testing, and automation.
-        </p>
-        <h3>My Values</h3>
-        <ul>
-          <li>Clean and efficient code</li>
-          <li>Adaptive design</li>
-          <li>Continuous learning and self-improvement</li>
-          <li>Teamwork and communication</li>
-        </ul>
-        <h3>My achievements</h3>
-        <ul>
-          <li>Improve website performance by 30% with optimization code</li>
-          <li>
-            Development and implementation of new functionalities for users in
-            several large projects
-          </li>
-          <li>Active development in it</li>
-        </ul>
-        <h3>Hobby</h3>
-        <p>
-          When I'm not working, I like to learn new technologies, play board
-          games games and travel. I am interested in exploring new cultures and
-          get inspiration for my projects.
-        </p>
-      </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education">
-      <h2>Education</h2>
-      <ul>
-        <li>
-          <h3>Software Engineering</h3>
-          <p><strong>University of Khmelnytskyi, 2024</strong></p>
-          <p>
-            Specialized in web development, JavaScript, and software engineering
-            principles.
-          </p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Technologies Section -->
-    <section id="technologies" class="technologies">
-      <h2>Technologies</h2>
-      <ul>
-        <li>React</li>
-        <li>TypeScript</li>
-        <li>HTML5</li>
-        <li>CSS3</li>
-        <li>JavaScript</li>
-        <li>Git</li>
-        <li>Webpack</li>
-      </ul>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="projects">
-        <a
-          href="https://ehulinian.github.io/react_phone-catalog/"
-          class="project"
-        >
-          <img
-            src="./assets/Знімок екрана 2024-11-24 162124.png"
-            alt="Project 1"
-          />
-        </a>
-        <a
-          href="https://ehulinian.github.io/layout_landing-page/"
-          class="project"
-        >
-          <img
-            src="./assets/306280011-694d9ba3-77b7-456e-8a68-12f2f3fdad2a.png"
-            alt="Project 2"
-          />
-        </a>
-        <a
-          href="https://ehulinian.github.io/layout_creativeBakery/"
-          class="project"
-        >
-          <img
-            src="./assets/Снимок экрана 2024-12-25 180122.png"
-            alt="Project 3"
-          />
-        </a>
-      </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer id="footer">
-      <p>&copy; 2024 Erik Hulinian</p>
-      <div class="social-links">
-        <a href="https://github.com/Ehulinian" target="_blank">GitHub</a>
-        <a
-          href="https://www.linkedin.com/in/%D0%B5%D1%80%D1%96%D0%BA-%D0%B3%D1%83%D0%BB%D1%96%D0%BD%D1%8F%D0%BD-8093a42b7/"
-          target="_blank"
-          >LinkedIn</a
-        >
-        <a href="https://t.me/herald_qwe" target="_blank">Telegram</a>
-      </div>
-    </footer>
-
+      </section>
+    </div>
+    <!---typed js for typing text effect-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const sections = document.querySelectorAll("section");
+      /** creating button click show hide navbar **/
+      var togglebtn = document.querySelector(".togglebtn");
+      var nav = document.querySelector(".navlinks");
+      var links = document.querySelector(".navlinks li");
 
-        const observer = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("appear");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          {
-            threshold: 0.32,
+      togglebtn.addEventListener("click", function () {
+        this.classList.toggle("click");
+        nav.classList.toggle("open");
+      });
+
+      var typed = new Typed(".input", {
+        strings: ["Web Developer", "Frontend Developer"],
+        typedSpeed: 70,
+        backSpeed: 70,
+        loop: true,
+      });
+      const items = document.querySelectorAll(".resume-item");
+
+      const container = document.querySelector(".resume-section");
+
+      let draggedItem = null;
+
+      items.forEach((item) => {
+        // Початок перетягування
+        item.addEventListener("dragstart", () => {
+          draggedItem = item;
+          setTimeout(() => {
+            item.style.display = "none";
+          }, 0);
+        });
+
+        // Завершення перетягування
+        item.addEventListener("dragend", () => {
+          setTimeout(() => {
+            draggedItem.style.display = "block";
+            draggedItem = null;
+          }, 0);
+        });
+
+        // Перетягування над іншим елементом
+        item.addEventListener("dragover", (e) => {
+          e.preventDefault();
+        });
+
+        // Відпускання елемента
+        item.addEventListener("drop", (e) => {
+          e.preventDefault();
+          if (draggedItem !== item) {
+            const itemsArray = [...container.children];
+            const draggedIndex = itemsArray.indexOf(draggedItem);
+            const targetIndex = itemsArray.indexOf(item);
+
+            if (draggedIndex < targetIndex) {
+              container.insertBefore(draggedItem, item.nextSibling);
+            } else {
+              container.insertBefore(draggedItem, item);
+            }
           }
-        );
-
-        sections.forEach((section) => {
-          observer.observe(section);
         });
       });
     </script>
